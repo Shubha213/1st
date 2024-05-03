@@ -1,0 +1,39 @@
+using UnityEngine;
+using UnityEngine.Video;
+
+public class VideoController : MonoBehaviour
+{
+    public VideoPlayer videoPlayer;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Get the VideoPlayer component attached to the same GameObject
+        videoPlayer = GetComponent<VideoPlayer>();
+        videoPlayer.Pause();
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // Check if the space key is pressed
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TogglePlayPause();
+        }
+    }
+
+    void TogglePlayPause()
+    {
+        // Toggle between play and pause based on current playback state
+        if (videoPlayer.isPlaying)
+        {
+            videoPlayer.Pause();
+        }
+        else
+        {
+            videoPlayer.Play();
+        }
+    }
+}
